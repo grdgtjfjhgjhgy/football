@@ -74,7 +74,7 @@ function Blockers () {
         ..........6bbb6.
         ...........666..
         `, SpriteKind.Player)
-    mySprite.setPosition(150, 110)
+    mySprite.setPosition(150, randint(0, 100))
     myDart2 = sprites.create(img`
         ..........bbbbbb................
         .......bbb444444bb..............
@@ -109,7 +109,7 @@ function Blockers () {
         ..........................ccc...
         ................................
         `, SpriteKind.Enemy)
-    myDart2.setPosition(52, 13)
+    myDart2.setPosition(randint(0, 150), randint(0, 100))
     e = sprites.create(img`
         . . . . . . . . . . b 5 b . . . 
         . . . . . . . . . b 5 b . . . . 
@@ -128,7 +128,7 @@ function Blockers () {
         b b c c c d d d d 5 5 5 b b . . 
         . . . c c c c c c c c b b . . . 
         `, SpriteKind.Enemy)
-    e.setPosition(87, 92)
+    e.setPosition(randint(0, 150), randint(0, 100))
     my_sprite = sprites.create(img`
         ................86..................
         ...........6688867886...............
@@ -172,7 +172,7 @@ function Blockers () {
         ...............fceeec...............
         ...............ffceec...............
         `, SpriteKind.Enemy)
-    my_sprite.setPosition(48, 70)
+    my_sprite.setPosition(randint(0, 150), randint(0, 100))
 }
 sprites.onOverlap(SpriteKind.Football, SpriteKind.Player, function (sprite, otherSprite) {
     game.splash("GOAL!")
