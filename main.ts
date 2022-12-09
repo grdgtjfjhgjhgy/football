@@ -1,6 +1,9 @@
 namespace SpriteKind {
     export const Football = SpriteKind.create()
 }
+function sample (bool: boolean, num: number) {
+    mySprite.setVelocity(50, 50)
+}
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     myDart.stopDart()
 })
