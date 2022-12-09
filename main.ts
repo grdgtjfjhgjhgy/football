@@ -207,3 +207,6 @@ myDart = darts.create(img`
 myDart.setTrace()
 myDart.controlWithArrowKeys()
 Blockers()
+if (true) {
+	
+}
