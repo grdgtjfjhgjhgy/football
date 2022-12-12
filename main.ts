@@ -1,9 +1,6 @@
 namespace SpriteKind {
     export const Football = SpriteKind.create()
 }
-function sample (bool: boolean, num: number) {
-    mySprite.setVelocity(50, 50)
-}
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     myDart.stopDart()
 })
@@ -97,7 +94,7 @@ function Blockers () {
         ..........6bbb6.
         ...........666..
         `, SpriteKind.Player)
-    mySprite.setPosition(150, randint(50, 100))
+    mySprite.setPosition(150, randint(50, 75))
     myDart2 = sprites.create(img`
         ..........bbbbbb................
         .......bbb444444bb..............
@@ -132,7 +129,7 @@ function Blockers () {
         ..........................ccc...
         ................................
         `, SpriteKind.Enemy)
-    myDart2.setPosition(randint(50, 100), randint(0, 100))
+    myDart2.setPosition(randint(50, 100), randint(0, 75))
     e = sprites.create(img`
         . . . . . . . . . . b 5 b . . . 
         . . . . . . . . . b 5 b . . . . 
@@ -151,7 +148,7 @@ function Blockers () {
         b b c c c d d d d 5 5 5 b b . . 
         . . . c c c c c c c c b b . . . 
         `, SpriteKind.Enemy)
-    e.setPosition(randint(50, 100), randint(0, 100))
+    e.setPosition(randint(50, 100), randint(0, 75))
     my_sprite = sprites.create(img`
         ................86..................
         ...........6688867886...............
@@ -195,18 +192,28 @@ function Blockers () {
         ...............fceeec...............
         ...............ffceec...............
         `, SpriteKind.Enemy)
-    my_sprite.setPosition(randint(50, 100), randint(0, 100))
+    my_sprite.setPosition(randint(50, 100), randint(0, 75))
 }
 sprites.onOverlap(SpriteKind.Football, SpriteKind.Player, function (sprite, otherSprite) {
     game.splash("GOAL!")
-    game.reset()
+    info.changeScoreBy(1)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Football)
+    Blockers()
 })
 sprites.onOverlap(SpriteKind.Football, SpriteKind.Enemy, function (sprite, otherSprite) {
     myDart.stopDart()
+    game.splash("oops")
+    info.changeScoreBy(-1)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Football)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
+    Blockers()
 })
 let my_sprite: Sprite = null
 let e: Sprite = null
 let myDart2: Sprite = null
-let myDart: Dart = null
 let mySprite: Sprite = null
+let myDart: Dart = null
 Blockers()
