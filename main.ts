@@ -11,6 +11,26 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     myDart.throwDart()
 })
 function Blockers () {
+    myDart = darts.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . e e e e e . . . . . . 
+        . . . . e e e e e e e . . . . . 
+        . . . e 1 e 1 e 1 e 1 e . . . . 
+        . . e 1 1 1 1 1 1 1 1 1 e . . . 
+        . . . e 1 e 1 e 1 e 1 e . . . . 
+        . . . . e e e e e e e . . . . . 
+        . . . . . e e e e e . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Football)
+    myDart.setTrace()
+    myDart.controlWithArrowKeys()
     mySprite = sprites.create(img`
         .............cc.
         ............cbbc
@@ -187,29 +207,6 @@ sprites.onOverlap(SpriteKind.Football, SpriteKind.Enemy, function (sprite, other
 let my_sprite: Sprite = null
 let e: Sprite = null
 let myDart2: Sprite = null
-let mySprite: Sprite = null
 let myDart: Dart = null
-myDart = darts.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . e e e e e . . . . . . 
-    . . . . e e e e e e e . . . . . 
-    . . . e 1 e 1 e 1 e 1 e . . . . 
-    . . e 1 1 1 1 1 1 1 1 1 e . . . 
-    . . . e 1 e 1 e 1 e 1 e . . . . 
-    . . . . e e e e e e e . . . . . 
-    . . . . . e e e e e . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Football)
-myDart.setTrace()
-myDart.controlWithArrowKeys()
+let mySprite: Sprite = null
 Blockers()
-if (true) {
-	
-}
